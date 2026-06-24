@@ -1,0 +1,27 @@
+{
+  "skills": {
+    "skills": {
+      "skill1": {
+        "v1": {
+          "archive_path": "/home/nahar/Documents/code/dot-prompt-elixir/test/fixtures/prompts/skills/archive/skill1_v1.prompt",
+          "branch": "main",
+          "last_accessed": "2026-06-24T04:31:04.118590Z"
+        }
+      },
+      "skill2": {
+        "v1": {
+          "archive_path": "/home/nahar/Documents/code/dot-prompt-elixir/test/fixtures/prompts/skills/archive/skill2_v1.prompt",
+          "branch": "main",
+          "last_accessed": "2026-06-24T04:31:04.119883Z"
+        }
+      },
+      "test_skill": {
+        "v1": {
+          "archive_path": "/home/nahar/Documents/code/dot-prompt-elixir/test/fixtures/prompts/skills/archive/test_skill_v1.prompt",
+          "branch": "main",
+          "last_accessed": "2026-06-24T04:31:04.137045Z"
+        }
+      }
+    }
+  }
+}
