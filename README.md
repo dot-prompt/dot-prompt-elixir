@@ -1,5 +1,9 @@
 # dot-prompt
 
+[![Hex.pm](https://img.shields.io/hexpm/v/dot_prompt.svg)](https://hex.pm/packages/dot_prompt)
+
+[Published on hex.pm](https://hex.pm/packages/dot_prompt)
+
 A compiled language for LLM prompts. Define structure, branching, and contracts in `.prompt` files — ship clean prompts to your LLM.
 
 ---
@@ -145,13 +149,11 @@ No branching. No logic. No dead weight. Just the instruction the LLM needs.
 
 **Semantic versioning** — `@major` pins the contract version. Callers pin to a major version and receive non-breaking updates automatically. Old major versions are served from `archive/` for callers that have not upgraded.
 
-**Breaking change detection** — the container detects breaking contract changes on every save. Prompts the developer to version before committing. Hard warning at git commit if unversioned breaking changes exist.
+**Breaking change detection** — the library detects breaking contract changes on every save. Prompts the developer to version before committing. Hard warning at git commit if unversioned breaking changes exist.
 
-**Snapshot safety** — the container snapshots every `.prompt` file before the first edit after a commit. LLM agents can edit freely — the pre-edit baseline is always preserved for archiving.
+**Snapshot safety** — the library snapshots every `.prompt` file before the first edit after a commit. LLM agents can edit freely — the pre-edit baseline is always preserved for archiving.
 
-**MCP server** — LLM coding tools discover prompt schemas, params, and contracts via MCP without reading raw files.
-
-**Works with any language** — Elixir gets a native library. Everyone else calls the container HTTP API.
+**Elixir native** — pure Elixir library with zero external dependencies. Compile prompts, manage versioning, and render contracts all from within your Phoenix or Elixir project.
 
 ---
 
