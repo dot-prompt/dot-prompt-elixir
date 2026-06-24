@@ -1,10 +1,10 @@
 # dot-prompt
 
+A compiled language for LLM prompts. Define structure, branching, and contracts in `.prompt` files — ship clean prompts to your LLM.
+
 [![Hex.pm](https://img.shields.io/hexpm/v/dot_prompt.svg)](https://hex.pm/packages/dot_prompt)
 
-[Published on hex.pm](https://hex.pm/packages/dot_prompt)
-
-A compiled language for LLM prompts. Define structure, branching, and contracts in `.prompt` files — ship clean prompts to your LLM.
+[hex.pm](https://hex.pm/packages/dot_prompt)
 
 ---
 
