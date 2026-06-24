@@ -5,8 +5,8 @@ defmodule DotPrompt.Compiler.FragmentExpander.CollectionTest do
   @prompts_dir Path.expand("test/fixtures/collection_test", File.cwd!())
 
   setup_all do
-    original_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
-    Application.put_env(:anantha_dot_prompt, :prompts_dir, @prompts_dir)
+    original_dir = Application.get_env(:dot_prompt, :prompts_dir)
+    Application.put_env(:dot_prompt, :prompts_dir, @prompts_dir)
     # Ensure fixtures exist
     File.mkdir_p!(Path.join(@prompts_dir, "skills"))
 
@@ -57,7 +57,7 @@ defmodule DotPrompt.Compiler.FragmentExpander.CollectionTest do
     """)
 
     on_exit(fn ->
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, original_dir)
+      Application.put_env(:dot_prompt, :prompts_dir, original_dir)
       File.rm_rf!(@prompts_dir)
     end)
 

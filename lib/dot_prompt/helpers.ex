@@ -8,7 +8,7 @@ defmodule DotPrompt.Helpers do
 
   @doc false
   def prompts_dir(opts \\ []) do
-    case Keyword.get(opts, :prompts_dir) || Application.get_env(:anantha_dot_prompt, :prompts_dir) do
+    case Keyword.get(opts, :prompts_dir) || Application.get_env(:dot_prompt, :prompts_dir) do
       nil ->
         dir = "prompts"
         cwd = File.cwd!()

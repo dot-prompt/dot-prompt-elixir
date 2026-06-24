@@ -3,12 +3,12 @@ defmodule DotPrompt.Parser.ParserTest do
   alias DotPrompt.Parser.{Lexer, Parser}
 
   setup_all do
-    original_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
+    original_dir = Application.get_env(:dot_prompt, :prompts_dir)
     prompts_dir = Path.expand("test/fixtures/prompts", File.cwd!())
-    Application.put_env(:anantha_dot_prompt, :prompts_dir, prompts_dir)
+    Application.put_env(:dot_prompt, :prompts_dir, prompts_dir)
 
     on_exit(fn ->
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, original_dir)
+      Application.put_env(:dot_prompt, :prompts_dir, original_dir)
     end)
 
     :ok

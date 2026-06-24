@@ -21,10 +21,10 @@ defmodule DotPrompt.GitHubPoller do
 
   @impl true
   def init(opts) do
-    config = Keyword.get(opts, :github) || Application.get_env(:anantha_dot_prompt, :github) || []
+    config = Keyword.get(opts, :github) || Application.get_env(:dot_prompt, :github) || []
 
     prompts_dir =
-      Keyword.get(opts, :prompts_dir) || Application.get_env(:anantha_dot_prompt, :prompts_dir)
+      Keyword.get(opts, :prompts_dir) || Application.get_env(:dot_prompt, :prompts_dir)
 
     state = %{
       repo_url: config[:repo_url],

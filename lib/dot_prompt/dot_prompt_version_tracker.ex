@@ -36,7 +36,7 @@ defmodule DotPrompt.VersionTracker do
     :ets.new(@ets_table, [:set, :named_table, :public])
 
     prompts_dir =
-      Keyword.get(opts, :prompts_dir) || Application.get_env(:anantha_dot_prompt, :prompts_dir)
+      Keyword.get(opts, :prompts_dir) || Application.get_env(:dot_prompt, :prompts_dir)
 
     metadata = load_metadata(prompts_dir)
 

@@ -4,8 +4,8 @@ defmodule DotPrompt.FeatureCoverageTest do
   @prompts_dir Path.expand("test/fixtures/feature_coverage", File.cwd!())
 
   setup_all do
-    original_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
-    Application.put_env(:anantha_dot_prompt, :prompts_dir, @prompts_dir)
+    original_dir = Application.get_env(:dot_prompt, :prompts_dir)
+    Application.put_env(:dot_prompt, :prompts_dir, @prompts_dir)
 
     # Create fixture directory structure
     File.mkdir_p!(@prompts_dir)
@@ -169,7 +169,7 @@ defmodule DotPrompt.FeatureCoverageTest do
     )
 
     on_exit(fn ->
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, original_dir)
+      Application.put_env(:dot_prompt, :prompts_dir, original_dir)
       File.rm_rf!(@prompts_dir)
     end)
 

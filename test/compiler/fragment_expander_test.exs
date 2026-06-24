@@ -8,8 +8,8 @@ defmodule DotPrompt.Compiler.FragmentExpanderTest do
   @prompts_dir Path.expand("test/fixtures/fragment_expander", File.cwd!())
 
   setup_all do
-    original_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
-    Application.put_env(:anantha_dot_prompt, :prompts_dir, @prompts_dir)
+    original_dir = Application.get_env(:dot_prompt, :prompts_dir)
+    Application.put_env(:dot_prompt, :prompts_dir, @prompts_dir)
     File.mkdir_p!(Path.join(@prompts_dir, "fragments/tips"))
 
     # Simple greeting fragment
@@ -58,7 +58,7 @@ defmodule DotPrompt.Compiler.FragmentExpanderTest do
     File.write!(Path.join(@prompts_dir, "malformed/bad.prompt"), "if @nonexistent is true do")
 
     on_exit(fn ->
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, original_dir)
+      Application.put_env(:dot_prompt, :prompts_dir, original_dir)
       File.rm_rf!(@prompts_dir)
     end)
 

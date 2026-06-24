@@ -8,9 +8,9 @@ defmodule DotPrompt.TelemetryTest do
   @prompts_dir_3 Path.expand("test/fixtures/telemetry_test3", File.cwd!())
 
   setup_all do
-    original_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
+    original_dir = Application.get_env(:dot_prompt, :prompts_dir)
     # Setup first directory for compile tests
-    Application.put_env(:anantha_dot_prompt, :prompts_dir, @prompts_dir_1)
+    Application.put_env(:dot_prompt, :prompts_dir, @prompts_dir_1)
     File.mkdir_p!(@prompts_dir_1)
 
     File.write!(Path.join(@prompts_dir_1, "demo.prompt"), """
@@ -54,7 +54,7 @@ defmodule DotPrompt.TelemetryTest do
     """)
 
     on_exit(fn ->
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, original_dir)
+      Application.put_env(:dot_prompt, :prompts_dir, original_dir)
       File.rm_rf!(@prompts_dir_1)
       File.rm_rf!(@prompts_dir_2)
       File.rm_rf!(@prompts_dir_3)
@@ -213,7 +213,7 @@ defmodule DotPrompt.TelemetryTest do
   describe "compile/2 emits telemetry" do
     test "compile emits telemetry events via compile_to_iodata" do
       # Switch to the first test directory
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, @prompts_dir_1)
+      Application.put_env(:dot_prompt, :prompts_dir, @prompts_dir_1)
 
       test_pid = self()
       start_id = "compile-start-#{:erlang.unique_integer()}"
@@ -262,7 +262,7 @@ defmodule DotPrompt.TelemetryTest do
   describe "compile_to_iodata/3 emits telemetry" do
     test "compile_to_iodata emits telemetry events" do
       # Switch to the second test directory
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, @prompts_dir_2)
+      Application.put_env(:dot_prompt, :prompts_dir, @prompts_dir_2)
 
       test_pid = self()
       start_id = "iodata-start-#{:erlang.unique_integer()}"
@@ -309,7 +309,7 @@ defmodule DotPrompt.TelemetryTest do
   describe "render/4 emits telemetry" do
     test "render emits telemetry events via internal compile call" do
       # Switch to the third test directory
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, @prompts_dir_3)
+      Application.put_env(:dot_prompt, :prompts_dir, @prompts_dir_3)
 
       test_pid = self()
       start_id = "render-start-#{:erlang.unique_integer()}"

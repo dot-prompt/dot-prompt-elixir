@@ -1,9 +1,9 @@
-defmodule AnanthaDotPrompt.MixProject do
+defmodule DotPrompt.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :anantha_dot_prompt,
+      app: :dot_prompt,
       version: "1.1.0",
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
@@ -24,7 +24,7 @@ defmodule AnanthaDotPrompt.MixProject do
 
   defp package do
     [
-      name: :anantha_dot_prompt,
+      name: :dot_prompt,
       maintainers: ["DotPrompt Team"],
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => "https://github.com/dot-prompt/dot-prompt-elixir"},

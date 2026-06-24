@@ -4,8 +4,8 @@ defmodule DotPrompt.V12ComprehensiveTest do
   @prompts_dir Path.expand("test/fixtures/v1_2_test", File.cwd!())
 
   setup do
-    original_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
-    Application.put_env(:anantha_dot_prompt, :prompts_dir, @prompts_dir)
+    original_dir = Application.get_env(:dot_prompt, :prompts_dir)
+    Application.put_env(:dot_prompt, :prompts_dir, @prompts_dir)
     File.mkdir_p!(Path.join(@prompts_dir, "archive"))
     File.mkdir_p!(Path.join([@prompts_dir, "skills", "archive"]))
 
@@ -46,7 +46,7 @@ defmodule DotPrompt.V12ComprehensiveTest do
     """)
 
     on_exit(fn ->
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, original_dir)
+      Application.put_env(:dot_prompt, :prompts_dir, original_dir)
       File.rm_rf!(@prompts_dir)
     end)
 

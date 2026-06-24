@@ -2,12 +2,12 @@ defmodule DotPrompt.ErrorHandlingTest do
   use ExUnit.Case, async: false
 
   setup_all do
-    original_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
+    original_dir = Application.get_env(:dot_prompt, :prompts_dir)
     prompts_dir = Path.expand("test/fixtures/prompts", File.cwd!())
-    Application.put_env(:anantha_dot_prompt, :prompts_dir, prompts_dir)
+    Application.put_env(:dot_prompt, :prompts_dir, prompts_dir)
 
     on_exit(fn ->
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, original_dir)
+      Application.put_env(:dot_prompt, :prompts_dir, original_dir)
     end)
 
     :ok
@@ -377,7 +377,7 @@ defmodule DotPrompt.ErrorHandlingTest do
   describe "collection_not_found (missing_index)" do
     test "error when accessing non-existent collection directory as fragment" do
       # First set up a valid collection directory
-      current_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
+      current_dir = Application.get_env(:dot_prompt, :prompts_dir)
       test_collection_dir = Path.join(current_dir, "valid_collection")
 
       File.mkdir_p!(test_collection_dir)
@@ -416,7 +416,7 @@ defmodule DotPrompt.ErrorHandlingTest do
   describe "collection_no_match" do
     test "returns ok with none header when no fragments match criteria" do
       # First set up a collection with matching fragments
-      current_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
+      current_dir = Application.get_env(:dot_prompt, :prompts_dir)
       test_collection_dir = Path.join(current_dir, "test_no_match_collection")
 
       # Create a collection with fragments that have specific match values

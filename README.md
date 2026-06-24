@@ -193,7 +193,7 @@ Add to your `mix.exs`:
 ```elixir
 defp deps do
   [
-    {:anantha_dot_prompt, "~> 1.1"}
+    {:dot_prompt, "~> 1.1"}
   ]
 end
 ```
@@ -201,7 +201,7 @@ end
 Configure the prompts directory:
 
 ```elixir
-config :anantha_dot_prompt,
+config :dot_prompt,
   prompts_dir: Path.expand("../prompts", __DIR__)
 ```
 

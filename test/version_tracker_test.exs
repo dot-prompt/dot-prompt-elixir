@@ -5,8 +5,8 @@ defmodule DotPrompt.VersionTrackerTest do
 
   setup do
     prompts_dir = Path.expand("test/fixtures/prompts", File.cwd!())
-    original_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
-    Application.put_env(:anantha_dot_prompt, :prompts_dir, prompts_dir, persistent: true)
+    original_dir = Application.get_env(:dot_prompt, :prompts_dir)
+    Application.put_env(:dot_prompt, :prompts_dir, prompts_dir, persistent: true)
 
     # Start VersionTracker to ensure ETS table exists
     start_supervised!(VersionTracker)
@@ -18,7 +18,7 @@ defmodule DotPrompt.VersionTrackerTest do
     :ets.delete_all_objects(:prompt_access_log)
 
     on_exit(fn ->
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, original_dir, persistent: true)
+      Application.put_env(:dot_prompt, :prompts_dir, original_dir, persistent: true)
       File.rm_rf!(meta_dir)
     end)
 

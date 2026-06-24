@@ -5,14 +5,14 @@ defmodule DotPrompt.GitHubPollerTest do
 
   setup do
     prompts_dir = Path.expand("test/fixtures/github_poller_test", File.cwd!())
-    original_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
-    Application.put_env(:anantha_dot_prompt, :prompts_dir, prompts_dir, persistent: true)
+    original_dir = Application.get_env(:dot_prompt, :prompts_dir)
+    Application.put_env(:dot_prompt, :prompts_dir, prompts_dir, persistent: true)
 
     File.mkdir_p(Path.join(prompts_dir, "skills/archive"))
     File.mkdir_p(Path.join(prompts_dir, ".tmp_download"))
 
     on_exit(fn ->
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, original_dir, persistent: true)
+      Application.put_env(:dot_prompt, :prompts_dir, original_dir, persistent: true)
       File.rm_rf(prompts_dir)
     end)
 

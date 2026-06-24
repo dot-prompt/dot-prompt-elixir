@@ -4,8 +4,8 @@ defmodule DotPrompt.ApiTest do
   @prompts_dir Path.expand("test/fixtures/api_test", File.cwd!())
 
   setup_all do
-    original_dir = Application.get_env(:anantha_dot_prompt, :prompts_dir)
-    Application.put_env(:anantha_dot_prompt, :prompts_dir, @prompts_dir)
+    original_dir = Application.get_env(:dot_prompt, :prompts_dir)
+    Application.put_env(:dot_prompt, :prompts_dir, @prompts_dir)
     File.mkdir_p!(Path.join(@prompts_dir, "skills"))
 
     File.write!(Path.join(@prompts_dir, "demo.prompt"), """
@@ -31,7 +31,7 @@ defmodule DotPrompt.ApiTest do
     """)
 
     on_exit(fn ->
-      Application.put_env(:anantha_dot_prompt, :prompts_dir, original_dir)
+      Application.put_env(:dot_prompt, :prompts_dir, original_dir)
       File.rm_rf!(@prompts_dir)
     end)
 
