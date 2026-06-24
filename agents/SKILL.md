@@ -78,11 +78,10 @@ lib/dot_prompt/
 - `DotPrompt.inject/2` — inject runtime params (stage 5)
 
 ## Golden Rules
-- **This is a git submodule** — changes should flow from upstream, not from here
-- **Do NOT modify code** unless fixing a bug for the upstream dot-prompt/dot-prompt-elixir repo
-- **If adding docs** — these are safe, they don't affect functionality
+- **Develop from within Anantha** — this is the primary dev environment. Edit, commit, push from here
 - **Keep standalone** — zero references to `Anantha.*`, `Acs.*`, or project internals
-- **To update** from upstream: `cd lib/dot_prompt && git pull origin main`
+- **Changelog** — every change must add entry in `CHANGELOG.md`
+- **Push BEFORE publishing** — ensure remote repo is up to date before `mix hex.publish`
 
 ## Testing
 ```bash
@@ -92,5 +91,5 @@ cd lib/dot_prompt && mix test
 
 ## Common Pitfalls
 - **Don't** reference `Anantha.*` or `Acs.*` in dot_prompt code — it's a standalone Hex package
-- **Don't** modify dot_prompt code directly unless it's an upstream fix — changes go to dot-prompt/dot-prompt-elixir repo
+- **Don't** forget CHANGELOG — it's the release history for consumers
 - **Don't** add project-specific config to dot_prompt — use the main app's config
